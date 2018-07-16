@@ -4,22 +4,26 @@ var units = '&units=imperial';
 
 function fetchCurrentWeather(zipcode) {
     var url = base + 'weather?zip=' + zipcode + '&appid=' + API_KEY + units;
+    return (
     fetch(url)
     .then(function(results) {
         return results.json();
     }).then(function(data) {
-        console.log(data);
-    })   
+        //console.log(data);
+        return data;
+    })); 
 }
 
 function fetchForecast(zipcode) {
     var url = base + 'forecast?zip=' + zipcode + '&appid=' + API_KEY + units;
-    fetch(url)
+    return (
+        fetch(url)
     .then(function(results) {
         return results.json();
     }).then(function(data) {
-        console.log(data);
-    })   
+        //console.log(data);
+        return data;
+    }));   
 }
 
 module.exports = {

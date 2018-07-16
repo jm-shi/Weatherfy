@@ -4,6 +4,17 @@ body {
     margin: 0;
 }
 
+/*
+.header {
+    background: white;
+    opacity: 0.5;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(6,15,27);
+}
+*/
+
 .container {
     display: flex;
     justify-content: center;
@@ -34,6 +45,21 @@ body {
     font-size: 18px;
 }
 
+.button {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.button:hover {
+    font-weight: bold;
+}
+
 #searchButton {
     text-align: center;
     display: block;
@@ -42,4 +68,17 @@ body {
     border-radius: 5px;
     font-size: 18px;
     cursor: pointer;
+}
+
+#notFound {
+    text-align: center;
+    color: white;
+}
+
+#notFoundHeader {
+    font-size: 40px;
+}
+
+#notFoundText {
+    font-size: 20px;
 }

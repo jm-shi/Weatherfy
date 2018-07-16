@@ -1,4 +1,5 @@
 var React = require('react');
+var Link = require('react-router-dom').Link;
 var api = require('../functions/api');
 
 // http://api.openweathermap.org/data/2.5/weather?zip=92092,us&appid=f3cbbe2a0f24bfb9df32da4e157f57d7&units=imperial
@@ -13,11 +14,11 @@ class Form extends React.Component {
         }
 
         this.setZipcode = this.setZipcode.bind(this);
-        this.getWeather = this.getWeather.bind(this);
+        this.checkForm = this.checkForm.bind(this);
     }
 
-    setZipcode(event) {
-        var value = event.target.value;
+    setZipcode(e) {
+        var value = e.target.value;
         this.setState(function() {
             return {
                 zipcode: value
@@ -25,16 +26,18 @@ class Form extends React.Component {
         });
     }
 
-    getWeather() {
-        api.fetchCurrentWeather(this.state.zipcode);
-        api.fetchForecast(this.state.zipcode);
+    checkForm(e) {
+        if (this.state.zipcode.length !== 5) {
+            e.preventDefault();
+            alert("Enter a 5-digit zipcode.");
+        }
     }
 
     render() {
         var zipcode = this.state.zipcode;
 
         return (
-            <div className='container'>
+            <div>
                 <form className='searchWeather'>
                     <label id='searchLabel' htmlFor='searchBar'>Enter a zip code</label>
                     <input
@@ -43,15 +46,29 @@ class Form extends React.Component {
                     placeholder='92092' 
                     value={this.state.zipcode} 
                     onChange={this.setZipcode} />
-                    <button id='searchButton' 
-                            type='button'
-                            disabled={!this.state.zipcode}
-                            onClick={this.getWeather}>Get Weather</button>
+
+                    <Link className='button' 
+                          to={
+                              {
+                                  pathname: '/forecast',
+                                  zipcode: this.state.zipcode
+                              }
+                          }
+                          onClick={this.checkForm} >
+                        Get Weather
+                    </Link>
+                   
                 </form>
             </div>
         );
     }
 }
+
+/*  <button id='searchButton' 
+                            type='button'
+                            disabled={!this.state.zipcode}
+                            onClick={this.getWeather}>Get Weather</button>
+                            */
 
 
 module.exports = Form;

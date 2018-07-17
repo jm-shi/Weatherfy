@@ -10,7 +10,7 @@ class App extends React.Component {
     render() {
         return (
             <BrowserRouter>
-                <div className='container'>
+                <div>
                     <Switch>
                         <Route exact path='/' component={Home} />
                         <Route path='/forecast' component={Forecast} />

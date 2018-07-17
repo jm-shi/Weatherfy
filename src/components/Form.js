@@ -1,6 +1,6 @@
 var React = require('react');
 var Link = require('react-router-dom').Link;
-var api = require('../functions/api');
+var api = require('../utils/api');
 
 // http://api.openweathermap.org/data/2.5/weather?zip=92092,us&appid=f3cbbe2a0f24bfb9df32da4e157f57d7&units=imperial
 // http://api.openweathermap.org/data/2.5/forecast?zip=92092&appid=f3cbbe2a0f24bfb9df32da4e157f57d7&units=imperial

@@ -15,7 +15,7 @@ body {
 }
 */
 
-.container {
+.homeContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,6 +23,10 @@ body {
     transform: translateY(50%);
     background-size: cover;
     padding: 10px;
+}
+
+.forecastContainer {
+    color: white;
 }
 
 .searchWeather {
@@ -57,7 +61,7 @@ body {
 }
 
 .button:hover {
-    font-weight: bold;
+    background-color: gray;
 }
 
 #searchButton {

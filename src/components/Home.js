@@ -5,7 +5,8 @@ var Header = require('./Header');
 class Home extends React.Component {
     render() {
         return (
-            <div className='homeContainer'>
+            <div>
+                <Header />
                 <Form />
             </div>
         );
@@ -13,3 +14,6 @@ class Home extends React.Component {
 }
 
 module.exports = Home;
+
+
+

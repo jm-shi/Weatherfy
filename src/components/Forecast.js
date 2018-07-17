@@ -1,5 +1,6 @@
 var React = require('react');
-var Weather = require('./Weather');
+var Weather = require('./TodayWeather');
+var Header = require('./Header');
 var api = require('../utils/api');
 
 class Forecast extends React.Component {
@@ -12,7 +13,7 @@ class Forecast extends React.Component {
             isLoadingForecastData: true
         }
         this.updateData = this.updateData.bind(this);
-        this.testing = this.testing.bind(this);
+        this.getWeather = this.getWeather.bind(this);
     }
 
     componentDidMount() {
@@ -44,7 +45,7 @@ class Forecast extends React.Component {
         }.bind(this))
     }
 
-    testing() {
+    getWeather() {
         var currWeatherData = this.state.currWeatherData;
 
         var data = {
@@ -76,11 +77,12 @@ class Forecast extends React.Component {
     render() {
         return (
             <div className='forecastContainer'>
- 
+                <Header />
+
                 {(this.state.isLoadingCurrWeatherData && this.state.isLoadingForecastData)
                 ? <p>Loading...</p>
                 : <div>
-                    <p>Done {this.testing()}</p><Weather data={this.state.currWeatherData} />
+                    <p>{this.getWeather()}</p><Weather data={this.state.currWeatherData} />
                   </div> }
 
             </div>

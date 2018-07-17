@@ -25,6 +25,11 @@ function formatDate(timestamp) {
     return dateObj;
 }
 
+function toCelsius(fahrenheit) {
+    return Math.round((fahrenheit-32)*5/9);
+}
+
 module.exports = {
-    formatDate: formatDate
+    formatDate: formatDate,
+    toCelsius: toCelsius
 }

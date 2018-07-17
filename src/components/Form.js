@@ -38,37 +38,32 @@ class Form extends React.Component {
 
         return (
             <div>
-                <form className='searchWeather'>
-                    <label id='searchLabel' htmlFor='searchBar'>Enter a zip code</label>
-                    <input
-                    id='searchBar'
-                    type='text'
-                    placeholder='92092' 
-                    value={this.state.zipcode} 
-                    onChange={this.setZipcode} />
+                <form className='form'>
+                    <div className='formContainer'>
+                        <label id='searchLabel' htmlFor='searchBar'>Get weather by zipcode</label>
+                        <input
+                            id='searchBar'
+                            type='text'
+                            placeholder='Enter a zipcode' 
+                            value={this.state.zipcode} 
+                            onChange={this.setZipcode} />
 
-                    <Link className='button' 
-                          to={
-                              {
-                                  pathname: '/forecast',
-                                  zipcode: this.state.zipcode
-                              }
-                          }
-                          onClick={this.checkForm} >
-                        Get Weather
-                    </Link>
+                        <Link className='button' 
+                            to={
+                                {
+                                    pathname: '/forecast',
+                                    zipcode: this.state.zipcode
+                                }
+                            }
+                            onClick={this.checkForm} >
+                            Get Weather
+                        </Link>
+                    </div>
                    
                 </form>
             </div>
         );
     }
 }
-
-/*  <button id='searchButton' 
-                            type='button'
-                            disabled={!this.state.zipcode}
-                            onClick={this.getWeather}>Get Weather</button>
-                            */
-
 
 module.exports = Form;

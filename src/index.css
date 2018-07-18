@@ -5,13 +5,20 @@ body {
 }
 
 .header {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+   /* text-align: center; */
+    text-decoration: none;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 50px;
     padding: 10px;
     font-weight: bold;
     font-size: 5em;
     color: rgb(255,255,255);
+}
+
+.header a {
+    color: rgb(255,255,255);
+    text-decoration: none;
 }
 
 .form {
@@ -53,6 +60,10 @@ body {
     border-radius: 5px;
     font-size: 18px;
     width: 80%;
+}
+
+#searchBar:focus {
+    outline: none;
 }
 
 .button {
@@ -135,10 +146,6 @@ body {
     justify-content: center;
     font-size: 3em;
 }
-/*
-.nav .button {
-    outline: 0;
-}*/
 
 .weatherData {
     margin-top: 1.5em;

@@ -1,5 +1,5 @@
 var React = require('react');
-var Header = require('./Header');
+var Navbar = require('./Navbar');
 var Today = require('./Today');
 var FiveDay = require('./FiveDay');
 var api = require('../utils/api');
@@ -47,30 +47,6 @@ class Forecast extends React.Component {
         }.bind(this))
     }
 
-    /*
-    getToday() {
-        var currWeatherData = this.state.currWeatherData;
-
-        var data = {
-            name: '',
-            temp: '',
-            temp_max: '',
-            temp_min: '',
-            humiditiy: '',
-            description: '',
-        }
-
-        if (currWeatherData !== null) {
-            data.name = currWeatherData.name;
-            data.temp = currWeatherData.main.temp + '°F';
-            data.temp_max = currWeatherData.main.temp_max + '°F';
-            data.temp_min = currWeatherData.main.temp_min + '°F';
-            data.humiditiy = currWeatherData.main.humidity + '%';
-            data.description = currWeatherData.weather[0].description;
-            console.log("testing:",data);
-        }
-    }*/
-
     setToday() {
         this.setState(function() {
             return {
@@ -90,7 +66,7 @@ class Forecast extends React.Component {
     render() {
         return (
             <div style={{ 'color': 'rgb(255,255,255)' }}>
-                <Header />
+                <Navbar />
                 
                 <div className='nav'>
                     <button className={'button ' + (this.state.showTodayWeather ? 'active' : '')} onClick={this.setToday}>

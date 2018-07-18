@@ -1,12 +1,12 @@
 var React = require('react');
 var Form = require('./Form');
-var Header = require('./Header');
+var Navbar = require('./Navbar');
 
 class Home extends React.Component {
     render() {
         return (
             <div>
-                <Header />
+                <Navbar />
                 <Form />
             </div>
         );

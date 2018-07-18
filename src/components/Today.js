@@ -53,7 +53,6 @@ class Today extends React.Component {
         return (
             <div className='container'>
 
-
                 <div id='todayData'>
                     <div className='data' style={{'fontSize': '5em', }}>{this.state.name}</div>
                     <div className='data' style={{'fontSize': '4em', }}>{this.state.f_temp} / {this.state.c_temp}</div>

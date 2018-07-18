@@ -1,13 +1,10 @@
 var React = require('react');
-var Header = require('./Header');
 var formatter = require('../utils/formatter.js');
 var formatDate = formatter.formatDate;
 var formatTime = formatter.formatTime;
 var toCelsius = formatter.toCelsius;
 
 class FiveDay extends React.Component {
-
-
     render() {
         console.log("five day:",this.props.data);
         return (

@@ -1,6 +1,5 @@
 body {
     background: linear-gradient(to right, rgb(6,15,27),rgb(89,108,133));
-    
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
 }
@@ -73,8 +72,20 @@ body {
     display: block;
 }
 
+.nav .button {
+    width: 40%;
+    font-size: 0.8em;
+    background: none;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 .button:hover {
     background-color: rgb(96, 103, 131);
+}
+
+.button:focus {
+    outline: none;
 }
 
 /*
@@ -88,10 +99,6 @@ body {
     font-size: 18px;
     cursor: pointer;
 }*/
-
-.forecastContainer {
-    color: rgb(255,255,255);
-}
 
 #notFound {
     text-align: center;
@@ -122,6 +129,35 @@ body {
     background-color: rgb(0, 0, 0, 0.4);
     padding: 2em;
 }
+
+.nav {
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+}
+/*
+.nav .button {
+    outline: 0;
+}*/
+
+.weatherData {
+    margin-top: 1.5em;
+}
+
+#active {
+    background-color: rgb(0, 0, 0, 0.4);
+}
+
+.nav .active {
+    background-color: rgb(0, 0, 0, 0.4);
+}
+
+table, th, td {
+    border: 1px solid rgb(255,255,255);
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
 /*
 #todayData {
     background: rgb(192, 150, 150);

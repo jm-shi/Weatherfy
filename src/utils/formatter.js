@@ -9,6 +9,12 @@ function formatDate(timestamp) {
     var day = date.getDate().toString();
     var formattedDate = month + ' ' + day + ', ' + year;
 
+    return formattedDate;
+}
+
+function formatTime(timestamp) {
+    var date = new Date(timestamp*1000);
+
     var hours = date.getHours();
     var meridiem = hours < 12 ? 'am' : 'pm';
     hours = hours % 12;
@@ -17,12 +23,7 @@ function formatDate(timestamp) {
     minutes = minutes < 10 ? '0'+minutes : minutes;
     var formattedTime = hours + ':' + minutes + ' ' + meridiem;
 
-    var dateObj = {
-        date: formattedDate,
-        time: formattedTime
-    }
-
-    return dateObj;
+    return formattedTime;
 }
 
 function toCelsius(fahrenheit) {
@@ -31,5 +32,6 @@ function toCelsius(fahrenheit) {
 
 module.exports = {
     formatDate: formatDate,
+    formatTime: formatTime,
     toCelsius: toCelsius
 }

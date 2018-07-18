@@ -1,6 +1,7 @@
 var React = require('react');
-var Weather = require('./TodayWeather');
 var Header = require('./Header');
+var Today = require('./Today');
+var FiveDay = require('./FiveDay');
 var api = require('../utils/api');
 
 class Forecast extends React.Component {
@@ -10,16 +11,17 @@ class Forecast extends React.Component {
             currWeatherData: null,
             forecastData: null,
             isLoadingCurrWeatherData: true,
-            isLoadingForecastData: true
+            isLoadingForecastData: true,
+            showTodayWeather: true
         }
         this.updateData = this.updateData.bind(this);
-        this.getWeather = this.getWeather.bind(this);
+        this.setToday = this.setToday.bind(this);
+        this.setFiveDay = this.setFiveDay.bind(this);
     }
 
     componentDidMount() {
         var zipcode = this.props.location.zipcode;
         this.updateData(zipcode);
-
     }
 
     updateData(zipcode) {
@@ -45,7 +47,8 @@ class Forecast extends React.Component {
         }.bind(this))
     }
 
-    getWeather() {
+    /*
+    getToday() {
         var currWeatherData = this.state.currWeatherData;
 
         var data = {
@@ -63,27 +66,50 @@ class Forecast extends React.Component {
             data.temp_max = currWeatherData.main.temp_max + '°F';
             data.temp_min = currWeatherData.main.temp_min + '°F';
             data.humiditiy = currWeatherData.main.humidity + '%';
-            data.description = this.capitalize(currWeatherData.weather[0].description);
+            data.description = currWeatherData.weather[0].description;
             console.log("testing:",data);
         }
+    }*/
+
+    setToday() {
+        this.setState(function() {
+            return {
+                showTodayWeather: true
+            }
+        })
     }
 
-    capitalize(str) {
-        return str.toLowerCase().split(' ').map(function(word) {
-            return word.replace(word[0], word[0].toUpperCase());
-          }).join(' ');
+    setFiveDay() {
+        this.setState(function() {
+            return {
+                showTodayWeather: false
+            }
+        })
     }
 
     render() {
         return (
-            <div className='forecastContainer'>
+            <div style={{ 'color': 'rgb(255,255,255)' }}>
                 <Header />
+                
+                <div className='nav'>
+                    <button className={'button ' + (this.state.showTodayWeather ? 'active' : '')} onClick={this.setToday}>
+                        Today
+                    </button>
+                    <button className={'button ' + (this.state.showTodayWeather ? '' : 'active')} onClick={this.setFiveDay}>
+                        5-Day
+                    </button>
+                </div>
 
                 {(this.state.isLoadingCurrWeatherData && this.state.isLoadingForecastData)
                 ? <p>Loading...</p>
-                : <div>
-                    <p>{this.getWeather()}</p><Weather data={this.state.currWeatherData} />
-                  </div> }
+                : (this.state.showTodayWeather)
+                ? <div className='weatherData'>
+                    <Today data={this.state.currWeatherData} />
+                  </div> 
+                : <div className='weatherData'>
+                    <FiveDay data={this.state.forecastData}/>
+                </div>}
 
             </div>
         );

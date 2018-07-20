@@ -1,5 +1,5 @@
 var React = require('react');
-var Form = require('./Form');
+var Zipcode = require('./Zipcode');
 var Navbar = require('./Navbar');
 
 class Home extends React.Component {
@@ -7,7 +7,7 @@ class Home extends React.Component {
         return (
             <div>
                 <Navbar />
-                <Form />
+                <Zipcode />
             </div>
         );
     }

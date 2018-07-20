@@ -9,7 +9,7 @@ class FiveDay extends React.Component {
         console.log("five day:",this.props.data);
         return (
             <div>
-                <div className='container'>
+                <div className='weatherContainer'>
                     <table>
                         <tbody>
                             <tr>

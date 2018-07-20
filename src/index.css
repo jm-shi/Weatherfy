@@ -7,12 +7,9 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
-   /* text-align: center; */
     text-decoration: none;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding: 10px;
     font-weight: bold;
-    font-size: 5em;
     color: rgb(255,255,255);
 }
 
@@ -22,44 +19,32 @@ body {
 }
 
 .form {
-    text-align: center;
-    padding: 50px;
-    /*display: flex;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 70%;
     justify-content: center;
     align-items: center;
-    position: relative;
-    transform: translateY(50%);
-    background-size: cover;
-    padding: 10px;*/
+    text-align: center;
 }
 
 .formContainer {
-    width: 70%;
-    display: inline-block;
-    padding: 2em;
+    padding: 5em;
     color: rgb(255,255,255);
     background-color: rgb(0,0,0, 0.4);
 }
 
-.searchWeather {
-    background-color: rgb(90,150,210);
-    padding: 50px;
-    text-align: center;
-}
-
 #searchLabel {
     display: block;
-    font-size: 2em;
+    font-size: 3em;
+    margin-bottom: 1em;
 }
 
 #searchBar {
     text-align: center;
-    padding: 10px;
-    margin: 10px auto;
-    border-color: black;
-    border-radius: 5px;
-    font-size: 18px;
-    width: 80%;
+    font-size: 2em;
+    margin: 0 auto;
+    border: none;
 }
 
 #searchBar:focus {
@@ -69,18 +54,16 @@ body {
 .button {
     text-align: center;
     text-decoration: none;
+    font-size: 2em;
     padding: 10px;
-    border-radius: 5px;
+    margin: auto;
     color: rgb(255,255,255);
-    /*background-color: rgb(40,85,130);*/
-    background: rgb(67, 77, 90);
+    background-color: rgb(67, 77, 90);
     cursor: pointer;
 }
 
 .formContainer .button {
     width: 80%;
-    margin: auto;
-    display: block;
 }
 
 .nav .button {
@@ -98,18 +81,6 @@ body {
 .button:focus {
     outline: none;
 }
-
-/*
-#searchButton {
-    text-align: center;
-   /* display: block;
-    margin: auto; *
-    border: none;
-    color: red;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-}*/
 
 #notFound {
     text-align: center;
@@ -133,7 +104,7 @@ body {
     margin: 0 150px;
 }
 
-.container {
+.weatherContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -151,10 +122,6 @@ body {
     margin-top: 1.5em;
 }
 
-#active {
-    background-color: rgb(0, 0, 0, 0.4);
-}
-
 .nav .active {
     background-color: rgb(0, 0, 0, 0.4);
 }
@@ -164,12 +131,3 @@ table, th, td {
     border-collapse: collapse;
     margin: 0 auto;
 }
-
-/*
-#todayData {
-    background: rgb(192, 150, 150);
-
-} 
-#todayIcon {
-    background: rgb(89,108,133);
-}*/

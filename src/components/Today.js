@@ -51,9 +51,9 @@ class Today extends React.Component {
 
     render() {
         return (
-            <div className='container'>
+            <div className='weatherContainer'>
 
-                <div id='todayData'>
+                <div>
                     <div className='data' style={{'fontSize': '5em', }}>{this.state.name}</div>
                     <div className='data' style={{'fontSize': '4em', }}>{this.state.f_temp} / {this.state.c_temp}</div>
                     <div className='data' style={{'fontSize': '4em', }}>{this.state.description}</div><br/>
@@ -64,7 +64,7 @@ class Today extends React.Component {
                     <div className='data' style={{'fontSize': '2em', }}>Sunset: {this.state.sunset}</div>
                 </div>
                 
-                <div id='todayIcon'>
+                <div>
                     <img src={'src/images/' + this.state.icon + '.svg'} className='icon' />
                 </div>
 

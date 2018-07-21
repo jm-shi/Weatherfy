@@ -1,7 +1,7 @@
-var React = require('react');
-var Searchbar = require('./Searchbar');
-var Link = require('react-router-dom').Link;
-var api = require('../utils/api');
+const React = require('react');
+const Searchbar = require('./Searchbar');
+const Link = require('react-router-dom').Link;
+const api = require('../utils/api');
 
 class Zipcode extends React.Component {
     render() {
@@ -17,6 +17,5 @@ class Zipcode extends React.Component {
         )
     }
 }
-
 
 module.exports = Zipcode;

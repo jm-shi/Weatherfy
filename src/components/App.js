@@ -1,12 +1,11 @@
-var React = require('react');
-var Home = require('./Home');
-var Forecast = require('./Forecast');
-var FiveDay = require('./FiveDay');
-var ReactRouter = require('react-router-dom');
-var BrowserRouter = ReactRouter.BrowserRouter;
-var Route = ReactRouter.Route;
-var Switch = ReactRouter.Switch;
-
+const React = require('react');
+const Home = require('./Home');
+const Forecast = require('./Forecast');
+const FiveDay = require('./FiveDay');
+const ReactRouter = require('react-router-dom');
+const BrowserRouter = ReactRouter.BrowserRouter;
+const Route = ReactRouter.Route;
+const Switch = ReactRouter.Switch;
 
 class App extends React.Component {
     render() {
@@ -15,11 +14,11 @@ class App extends React.Component {
                 <Switch>
                     <Route exact path='/' component={Home} />
                     <Route exact path='/forecast/:zipcode' component={Forecast} />
-                    <Route render={function() {
-                        return <div id='notFound'>
+                    <Route render={() =>
+                            <div id='notFound'>
                                 <div id='notFoundHeader'>404</div>
                                 <div id='notFoundText'>Page Not Found</div>
-                            </div> }} />
+                            </div> } />
                 </Switch>
             </BrowserRouter>
         );

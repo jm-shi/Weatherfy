@@ -1,9 +1,9 @@
-var React = require('react');
-var api = require('../utils/api');
-var formatter = require('../utils/formatter.js');
-var formatDate = formatter.formatDate;
-var formatTime = formatter.formatTime;
-var toCelsius = formatter.toCelsius;
+const React = require('react');
+const api = require('../utils/api');
+const formatter = require('../utils/formatter.js');
+const formatDate = formatter.formatDate;
+const formatTime = formatter.formatTime;
+const toCelsius = formatter.toCelsius;
 
 class FiveDay extends React.Component {
     constructor(props) {
@@ -12,8 +12,6 @@ class FiveDay extends React.Component {
             forecastData: null,
             isLoading: true
         }
-
-        this.updateData = this.updateData.bind(this);
     }
 
     componentDidMount() {
@@ -25,23 +23,20 @@ class FiveDay extends React.Component {
     }
 
     updateData(zipcode) {
-        api.fetchForecast(zipcode).then(function(data) {
-            this.setState(function() {
-                return {
-                    forecastData: data,
-                    isLoading: false
-                }
-            })
-        }.bind(this))
+        api.fetchForecast(zipcode).then((data) =>
+            this.setState(() => ({
+                forecastData: data,
+                isLoading: false
+            })));
     }
 
     render() {
-        console.log("five day data",this.state.forecastData);
+        const { isLoading, forecastData } = this.state;
         return (
             <div>
 
-                {(this.state.isLoading || this.state.forecastData == null)
-                ? <p>Loading five-day data...</p>
+                {(isLoading || forecastData == null)
+                ? <p style={{fontSize: '2em'}}>Loading...</p>
                 : <div className='weatherContainer'>
                     <table>
                         <tbody>
@@ -53,18 +48,15 @@ class FiveDay extends React.Component {
                                 <th>Conditions</th>
                             </tr>
                             
-                            { this.state.forecastData.list.map(function(item) {
-                                return (
+                            {forecastData.list.map(item =>
                                 <tr key={item.dt}>
                                     <td><img src={'../src/images/' + item.weather[0].icon + '.svg'}/></td>
                                     <td>{formatDate(item.dt)}</td>
                                     <td>{formatTime(item.dt)}</td>
                                     <td>{Math.round(item.main.temp)}°F / {Math.round(toCelsius(item.main.temp))}°C</td>
                                     <td>{item.weather[0].description}</td>
-                                </tr>
-                                )
-                            }, this) }
-                            
+                                </tr>)
+                            }
                         </tbody>
                     </table>
                 </div>

@@ -1,6 +1,6 @@
-var React = require('react');
-var Searchbar = require('./Searchbar');
-var NavLink = require('react-router-dom').NavLink;
+const React = require('react');
+const Searchbar = require('./Searchbar');
+const NavLink = require('react-router-dom').NavLink;
 
 class Navbar extends React.Component {
     render() {

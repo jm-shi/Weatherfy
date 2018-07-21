@@ -1,6 +1,6 @@
-var React = require('react');
-var Zipcode = require('./Zipcode');
-var Navbar = require('./Navbar');
+const React = require('react');
+const Zipcode = require('./Zipcode');
+const Navbar = require('./Navbar');
 
 class Home extends React.Component {
     render() {

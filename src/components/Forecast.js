@@ -1,8 +1,8 @@
-var React = require('react');
-var Navbar = require('./Navbar');
-var Today = require('./Today');
-var FiveDay = require('./FiveDay');
-var api = require('../utils/api');
+const React = require('react');
+const Navbar = require('./Navbar');
+const Today = require('./Today');
+const FiveDay = require('./FiveDay');
+const api = require('../utils/api');
 
 class Forecast extends React.Component {
     constructor(props) {
@@ -10,57 +10,45 @@ class Forecast extends React.Component {
         this.state = {
             showTodayWeather: true
         }
-        this.updateData = this.updateData.bind(this);
         this.setToday = this.setToday.bind(this);
         this.setFiveDay = this.setFiveDay.bind(this);
     }
 
     componentDidMount() {
-        console.log("this.props", this.props);
-        var zipcode = this.props.match.params.zipcode;
-        this.updateData(zipcode);
-    }
-
-    updateData(zipcode) {
-        var zipcode = this.props.match.params.zipcode || 92092;
+        console.log("forecast props", this.props);
     }
 
     setToday() {
-        this.setState(function() {
-            return {
-                showTodayWeather: true
-            }
-        })
+        this.setState(() => ({ showTodayWeather: true }))
     }
 
     setFiveDay() {
-        this.setState(function() {
-            return {
-                showTodayWeather: false
-            }
-        })
+        this.setState(() => ({ showTodayWeather: false }))
     }
 
     render() {
+        const { showTodayWeather } = this.state
+        const { zipcode } = this.props.match.params
+
         return (
             <div style={{ 'color': 'rgb(255,255,255)' }}>
                 <Navbar />
                 
                 <div className='nav'>
-                    <button className={'button ' + (this.state.showTodayWeather ? 'active' : '')} onClick={this.setToday}>
+                    <button className={'button ' + (showTodayWeather ? 'active' : '')} onClick={this.setToday}>
                         Today
                     </button>
-                    <button className={'button ' + (this.state.showTodayWeather ? '' : 'active')} onClick={this.setFiveDay}>
+                    <button className={'button ' + (showTodayWeather ? '' : 'active')} onClick={this.setFiveDay}>
                         5-Day
                     </button>
                 </div>
 
-                {(this.state.showTodayWeather)
+                {(showTodayWeather)
                 ? <div className='weatherData'>
-                    <Today data={this.props.match.params.zipcode} />
+                    <Today data={zipcode} />
                   </div> 
                 : <div className='weatherData'>
-                    <FiveDay data={this.props.match.params.zipcode}/>
+                    <FiveDay data={zipcode}/>
                 </div>}
 
             </div>

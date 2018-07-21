@@ -1,27 +1,27 @@
-var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
             'August', 'September', 'October', 'November', 'December'];
 
 function formatDate(timestamp) {
-    var date = new Date(timestamp*1000);
+    const date = new Date(timestamp*1000);
 
-    var year = date.getFullYear();
-    var month = months[date.getMonth()];
-    var day = date.getDate().toString();
-    var formattedDate = month + ' ' + day + ', ' + year;
+    const year = date.getFullYear();
+    const month = months[date.getMonth()];
+    const day = date.getDate().toString();
+    const formattedDate = month + ' ' + day + ', ' + year;
 
     return formattedDate;
 }
 
 function formatTime(timestamp) {
-    var date = new Date(timestamp*1000);
+    const date = new Date(timestamp*1000);
 
-    var hours = date.getHours();
-    var meridiem = hours < 12 ? 'am' : 'pm';
+    let hours = date.getHours();
+    const meridiem = hours < 12 ? 'am' : 'pm';
     hours = hours % 12;
     hours = hours ? hours : 12; 
-    var minutes = date.getMinutes();
+    let minutes = date.getMinutes();
     minutes = minutes < 10 ? '0'+minutes : minutes;
-    var formattedTime = hours + ':' + minutes + ' ' + meridiem;
+    const formattedTime = hours + ':' + minutes + ' ' + meridiem;
 
     return formattedTime;
 }
@@ -31,7 +31,7 @@ function toCelsius(fahrenheit) {
 }
 
 module.exports = {
-    formatDate: formatDate,
-    formatTime: formatTime,
-    toCelsius: toCelsius
+    formatDate,
+    formatTime,
+    toCelsius
 }

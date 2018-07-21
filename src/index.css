@@ -83,8 +83,12 @@ body {
 }
 
 #notFound {
+    color: white;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     text-align: center;
-    color: rgb(255,255,255);
 }
 
 #notFoundHeader {
@@ -92,6 +96,7 @@ body {
 }
 
 #notFoundText {
+
     font-size: 20px;
 }
 

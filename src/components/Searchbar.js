@@ -31,31 +31,34 @@ class Searchbar extends React.Component {
         if (this.state.zipcode.length !== 5) {
             e.preventDefault();
             alert("Enter a 5-digit zipcode.");
-        }
+        } 
     }
 
     render() {
         var zipcode = this.state.zipcode;
 
         return (
-            <div style={{'display': 'flex', 'backgroundColor': 'green'}}>
+            <div style={{'display': 'flex'}}>
                 <input
                     id='searchBar'
                     type='text'
                     placeholder='Enter a zipcode' 
-                    value={this.state.zipcode} 
+                    value={zipcode} 
                     onChange={this.setZipcode} />
+
 
                 <Link className='button' 
                     to={
                         {
-                            pathname: '/forecast',
-                            zipcode: this.state.zipcode
+                            pathname: '/forecast/' + zipcode,
+                            zipcode: zipcode
                         }
                     }
                     onClick={this.checkForm} >
                     Search
                 </Link>
+
+                
             </div>
         );
     }

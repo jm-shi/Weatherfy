@@ -7,7 +7,7 @@ class Navbar extends React.Component {
         return (
             <div className='header'>
                 <NavLink style={{'fontSize': '5em'}} exact to='/'>WEATHER</NavLink>
-                <div style={{ 'margin-top': '20px' }}>
+                <div style={{ 'marginTop': '20px' }}>
                     <Searchbar />
                 </div>
             </div>

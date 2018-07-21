@@ -8,10 +8,6 @@ class Forecast extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currWeatherData: null,
-            forecastData: null,
-            isLoadingCurrWeatherData: true,
-            isLoadingForecastData: true,
             showTodayWeather: true
         }
         this.updateData = this.updateData.bind(this);
@@ -20,31 +16,13 @@ class Forecast extends React.Component {
     }
 
     componentDidMount() {
-        var zipcode = this.props.location.zipcode;
+        console.log("this.props", this.props);
+        var zipcode = this.props.match.params.zipcode;
         this.updateData(zipcode);
     }
 
     updateData(zipcode) {
-        var zipcode = this.props.location.zipcode || 92092;
-        api.fetchCurrentWeather(zipcode).then(function(data) {
-            console.log('weather', data);
-            this.setState(function() {
-                return {
-                    currWeatherData: data,
-                    isLoadingCurrWeatherData: false
-                }
-            })
-        }.bind(this));
-        
-        api.fetchForecast(zipcode).then(function(data) {
-            console.log('forecast', data);
-            this.setState(function() {
-                return {
-                    forecastData: data,
-                    isLoadingForecastData: false
-                }
-            })
-        }.bind(this))
+        var zipcode = this.props.match.params.zipcode || 92092;
     }
 
     setToday() {
@@ -77,14 +55,12 @@ class Forecast extends React.Component {
                     </button>
                 </div>
 
-                {(this.state.isLoadingCurrWeatherData && this.state.isLoadingForecastData)
-                ? <p>Loading...</p>
-                : (this.state.showTodayWeather)
+                {(this.state.showTodayWeather)
                 ? <div className='weatherData'>
-                    <Today data={this.state.currWeatherData} />
+                    <Today data={this.props.match.params.zipcode} />
                   </div> 
                 : <div className='weatherData'>
-                    <FiveDay data={this.state.forecastData}/>
+                    <FiveDay data={this.props.match.params.zipcode}/>
                 </div>}
 
             </div>

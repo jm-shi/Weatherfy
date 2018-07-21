@@ -1,4 +1,5 @@
-var API_KEY = 'f3cbbe2a0f24bfb9df32da4e157f57d7';
+var API_KEY = 'd36573720cdb6bb65544e6d7befac4e1';
+// Alternative API_KEY: '42aac2ae36b877bcd46121292358b97f'
 var base = 'http://api.openweathermap.org/data/2.5/';
 var units = '&units=imperial';
 

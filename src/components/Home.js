@@ -6,7 +6,7 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <Navbar />
+                <Navbar onHomePage='true' />
                 <Zipcode />
             </div>
         );

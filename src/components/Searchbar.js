@@ -30,14 +30,13 @@ class Searchbar extends React.Component {
         const { zipcode } = this.state;
 
         return (
-            <div style={{'display': 'flex'}}>
+            <div className='searchContainer'>
                 <input
                     id='searchBar'
                     type='text'
                     placeholder='Enter a zipcode' 
                     value={zipcode} 
                     onChange={this.setZipcode} />
-
 
                 <Link className='button' 
                     to={

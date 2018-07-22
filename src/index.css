@@ -2,15 +2,51 @@ body {
     background: linear-gradient(to right, rgb(6,15,27),rgb(89,108,133));
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
+    padding: 0;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     text-decoration: none;
     padding: 10px;
     font-weight: bold;
     color: rgb(255,255,255);
+}
+
+@media (min-width: 1024px) {
+    .header {
+        flex-direction: row;
+    }
+    .home {
+        margin: auto;
+    }
+    .logo {
+        text-align: center;
+    }
+    .searchContainer #searchBar {
+        margin-bottom: 0;    
+    }
+    .searchContainer .button {
+        display: unset;
+    }
+}
+
+.searchContainer {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.searchContainer #searchBar {
+    position: relative;
+    margin-bottom: 10px;
+    width: 60%;  
+}
+
+.logo {
+    font-size: 5em;
+    text-align: center;
 }
 
 .header a {
@@ -20,7 +56,7 @@ body {
 
 .form {
     display: flex;
-    position: absolute;
+    position: absolute; 
     width: 100%;
     height: 70%;
     justify-content: center;
@@ -29,9 +65,9 @@ body {
 }
 
 .formContainer {
-    padding: 5em;
+    padding: 3em;
     color: rgb(255,255,255);
-    background-color: rgb(0,0,0, 0.4);
+    background-color: rgb(0,0,0, 0.4);    
 }
 
 #searchLabel {
@@ -43,7 +79,7 @@ body {
 #searchBar {
     text-align: center;
     font-size: 2em;
-    margin: 0 auto;
+    padding: 10px 15px;
     border: none;
 }
 
@@ -55,8 +91,8 @@ body {
     text-align: center;
     text-decoration: none;
     font-size: 2em;
-    padding: 10px;
-    margin: auto;
+    padding: 10px 15px;
+    margin: auto; 
     color: rgb(255,255,255);
     background-color: rgb(67, 77, 90);
     cursor: pointer;
@@ -96,7 +132,6 @@ body {
 }
 
 #notFoundText {
-
     font-size: 20px;
 }
 
@@ -123,12 +158,12 @@ body {
     font-size: 3em;
 }
 
-.weatherData {
-    margin-top: 1.5em;
-}
-
 .nav .active {
     background-color: rgb(0, 0, 0, 0.4);
+}
+
+.weatherData {
+    margin-top: 1.5em;
 }
 
 table, th, td {

@@ -10,7 +10,7 @@ class Zipcode extends React.Component {
                 <form className='form'>
                     <div className='formContainer'>
                         <label id='searchLabel' htmlFor='searchBar'>Get weather by zipcode</label>
-                        <Searchbar/>
+                        <Searchbar />
                     </div> 
                 </form>
             </div>

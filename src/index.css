@@ -120,9 +120,7 @@ body {
 
 .icon {
     height: 150px;
-   /* margin: 0 200px; */
     height: 15vw;
-   /* margin: 0 18vw; */
 }
 
 .data-header {
@@ -135,6 +133,10 @@ body {
 
 .data-details {
     font-size: 5vw;
+}
+
+.data-details:last-child {
+    margin-bottom: 10px;
 }
 
 .weather-container {
@@ -175,11 +177,9 @@ table, th, td {
     .data-subheader {
         font-size: 5vw;
     }
-    
     .data-details {
         font-size: 3vw;
     }
-
 }
 
 @media (min-width: 850px) {
@@ -201,7 +201,6 @@ table, th, td {
     .data-subheader {
         font-size: 4vw;
     }
-    
     .data-details {
         font-size: 2.5vw;
     }

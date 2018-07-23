@@ -139,7 +139,6 @@ body {
 
 .weather-container {
     display: flex;
-    flex-direction: row; 
     justify-content: space-around;
     align-items: center;
     background-color: rgb(0, 0, 0, 0.4);

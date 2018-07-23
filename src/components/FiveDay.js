@@ -32,13 +32,15 @@ class FiveDay extends React.Component {
 
     render() {
         const { isLoading, forecastData } = this.state;
+        console.log(forecastData);
         return (
             <div>
-
                 {(isLoading || forecastData == null)
                 ? <p style={{fontSize: '5vw'}}>Loading...</p>
                 : <div className='weather-container'>
+                    
                     <table>
+                        <caption style={{fontSize: '2em', marginBottom: '2vw'}}>{forecastData.city.name}</caption>
                         <tbody style={{textAlign: 'center',  padding: '2px'}}>
                             <tr>
                                 <th></th>

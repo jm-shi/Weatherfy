@@ -32,7 +32,6 @@ class FiveDay extends React.Component {
 
     render() {
         const { isLoading, forecastData } = this.state;
-        console.log(forecastData);
         return (
             <div>
                 {(isLoading || forecastData == null)
@@ -52,7 +51,7 @@ class FiveDay extends React.Component {
                             
                             {forecastData.list.map(item =>
                                 <tr key={item.dt} >
-                                    <td><img src={'../src/images/' + item.weather[0].icon + '.svg'}/></td>
+                                    <td><img src={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`}/></td>
                                     <td>{formatDate(item.dt)}</td>
                                     <td>{formatTime(item.dt)}</td>
                                     <td>{Math.round(item.main.temp)}°F / {Math.round(toCelsius(item.main.temp))}°C</td>

@@ -1,7 +1,8 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
-module.exports = {
+const config = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -11,7 +12,8 @@ module.exports = {
     module: {
         rules: [
             { test: /\.(js)$/, use: 'babel-loader' },
-            { test: /\.css$/, use: [ 'style-loader', 'css-loader' ]}
+            { test: /\.css$/, use: [ 'style-loader', 'css-loader' ]},
+            { test: /\.svg$/, use: 'file-loader' }
         ]
     },
     devServer: {
@@ -20,5 +22,7 @@ module.exports = {
     plugins: [new HtmlWebpackPlugin({
         template: 'src/index.html'
     })],
-    mode: "development"
+    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development'
 }
+
+module.exports = config;

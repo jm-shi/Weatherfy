@@ -7,8 +7,6 @@ const BrowserRouter = ReactRouter.BrowserRouter;
 const Route = ReactRouter.Route;
 const Switch = ReactRouter.Switch;
 
-
-
 class App extends React.Component {
     render() {
         return (

@@ -14,10 +14,6 @@ class Forecast extends React.Component {
         this.setFiveDay = this.setFiveDay.bind(this);
     }
 
-    componentDidMount() {
-        console.log("forecast props", this.props);
-    }
-
     setToday() {
         this.setState(() => ({ showTodayWeather: true }))
     }

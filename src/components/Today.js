@@ -52,7 +52,6 @@ class Today extends React.Component {
     render() {
         const { isLoading, name, f_temp, c_temp, description, f_temp_max, f_temp_min, c_temp_max, c_temp_min,
                 humidity, sunrise, sunset, icon} = this.state;
-        console.log(this.state);
         return (
             <div>
             
@@ -72,7 +71,8 @@ class Today extends React.Component {
                     </div>
                 
                     <div>
-                        <img src={`../src/images/${icon}.svg`} className='icon' />
+                        
+                        <img src={`https://openweathermap.org/img/w/${icon}.png`} className='icon' />
                     </div>
                 </div>
                 }

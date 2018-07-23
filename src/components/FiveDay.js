@@ -36,10 +36,10 @@ class FiveDay extends React.Component {
             <div>
 
                 {(isLoading || forecastData == null)
-                ? <p style={{fontSize: '2em'}}>Loading...</p>
-                : <div className='weatherContainer'>
+                ? <p style={{fontSize: '5vw'}}>Loading...</p>
+                : <div className='weather-container'>
                     <table>
-                        <tbody>
+                        <tbody style={{textAlign: 'center',  padding: '2px'}}>
                             <tr>
                                 <th></th>
                                 <th>Date</th>
@@ -49,7 +49,7 @@ class FiveDay extends React.Component {
                             </tr>
                             
                             {forecastData.list.map(item =>
-                                <tr key={item.dt}>
+                                <tr key={item.dt} >
                                     <td><img src={'../src/images/' + item.weather[0].icon + '.svg'}/></td>
                                     <td>{formatDate(item.dt)}</td>
                                     <td>{formatTime(item.dt)}</td>

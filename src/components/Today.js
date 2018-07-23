@@ -40,7 +40,7 @@ class Today extends React.Component {
                 c_temp: formatter.toCelsius(data.main.temp_min) + '°C',
                 c_temp_max: formatter.toCelsius(data.main.temp_max) + '°C',
                 c_temp_min: formatter.toCelsius(data.main.temp_min) + '°C',
-                humiditiy:  data.main.humidity + '%',
+                humidity:  data.main.humidity + '%',
                 sunrise: formatter.formatTime(data.sys.sunrise),
                 sunset: formatter.formatTime(data.sys.sunset),
                 description: data.weather[0].description,
@@ -52,22 +52,23 @@ class Today extends React.Component {
     render() {
         const { isLoading, name, f_temp, c_temp, description, f_temp_max, f_temp_min, c_temp_max, c_temp_min,
                 humidity, sunrise, sunset, icon} = this.state;
+        console.log(this.state);
         return (
             <div>
             
                 {(isLoading)
-                ? <p style={{fontSize: '2em'}}>Loading...</p>
+                ? <p style={{fontSize: '5vw'}}>Loading...</p>
                 :   
-                <div className='weatherContainer'>
+                <div className='weather-container'>
                     <div>
-                        <div className='data' style={{'fontSize': '5em', }}>{name}</div>
-                        <div className='data' style={{'fontSize': '4em', }}>{f_temp} / {c_temp}</div>
-                        <div className='data' style={{'fontSize': '4em', }}>{description}</div><br/>
-                        <div className='data' style={{'fontSize': '2em', }}>High: {f_temp_max} / {c_temp_max}</div>
-                        <div className='data' style={{'fontSize': '2em', }}>Low: {f_temp_min} / {c_temp_min}</div>
-                        <div className='data' style={{'fontSize': '2em', }}>Humidity: {humidity}</div>
-                        <div className='data' style={{'fontSize': '2em', }}>Sunrise: {sunrise}</div>
-                        <div className='data' style={{'fontSize': '2em', }}>Sunset: {sunset}</div>
+                        <div className='data-header'>{name}</div>
+                        <div className='data-subheader'>{f_temp} / {c_temp}</div>
+                        <div className='data-subheader'>{description}</div><br/>
+                        <div className='data-details'>High: {f_temp_max} / {c_temp_max}</div>
+                        <div className='data-details'>Low: {f_temp_min} / {c_temp_min}</div>
+                        <div className='data-details'>Humidity: {humidity}</div>
+                        <div className='data-details'>Sunrise: {sunrise}</div>
+                        <div className='data-details'>Sunset: {sunset}</div>
                     </div>
                 
                     <div>

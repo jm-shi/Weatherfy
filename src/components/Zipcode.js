@@ -8,8 +8,8 @@ class Zipcode extends React.Component {
         return (
             <div>
                 <form className='form'>
-                    <div className='formContainer'>
-                        <label id='searchLabel' htmlFor='searchBar'>Get weather by zipcode</label>
+                    <div className='form-container'>
+                        <label id='search-label'>Get weather by zipcode</label>
                         <Searchbar />
                     </div> 
                 </form>

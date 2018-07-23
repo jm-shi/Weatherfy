@@ -7,6 +7,8 @@ const BrowserRouter = ReactRouter.BrowserRouter;
 const Route = ReactRouter.Route;
 const Switch = ReactRouter.Switch;
 
+
+
 class App extends React.Component {
     render() {
         return (
@@ -15,9 +17,9 @@ class App extends React.Component {
                     <Route exact path='/' component={Home} />
                     <Route exact path='/forecast/:zipcode' component={Forecast} />
                     <Route render={() =>
-                            <div id='notFound'>
-                                <div id='notFoundHeader'>404</div>
-                                <div id='notFoundText'>Page Not Found</div>
+                            <div id='not-found'>
+                                <div id='not-found-header'>404</div>
+                                <div id='not-found-text'>Page Not Found</div>
                             </div> } />
                 </Switch>
             </BrowserRouter>

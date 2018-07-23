@@ -31,7 +31,7 @@ class Forecast extends React.Component {
         const { zipcode } = this.props.match.params
 
         return (
-            <div style={{ 'color': 'rgb(255,255,255)' }}>
+            <div style={{ color: 'rgb(255,255,255)' }}>
                 <Navbar />
                 
                 <div className='nav'>
@@ -44,10 +44,10 @@ class Forecast extends React.Component {
                 </div>
 
                 {(showTodayWeather)
-                ? <div className='weatherData'>
+                ? <div className='weather-data'>
                     <Today data={zipcode} />
                   </div> 
-                : <div className='weatherData'>
+                : <div className='weather-data'>
                     <FiveDay data={zipcode}/>
                 </div>}
 

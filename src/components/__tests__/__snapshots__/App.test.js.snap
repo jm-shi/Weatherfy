@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should render correctly 1`] = `
+<BrowserRouter>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/forecast/:zipcode"
+    />
+    <Route
+      render={[Function]}
+    />
+  </Switch>
+</BrowserRouter>
+`;
+
+exports[`<Home /> should render correctly 1`] = `
+<div>
+  <Navbar
+    onHomePage="true"
+  />
+  <Zipcode />
+</div>
+`;
+
+exports[`<Navbar /> should render correctly 1`] = `
+<div
+  className="header"
+>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    className="logo"
+    exact={true}
+    to="/"
+  >
+    WEATHER
+  </NavLink>
+  <div
+    style={
+      Object {
+        "marginTop": "20px",
+      }
+    }
+  >
+    <Searchbar />
+  </div>
+</div>
+`;
+
+exports[`<Searchbar /> should render correctly 1`] = `
+<div
+  className="search-container"
+>
+  <input
+    id="search-bar"
+    onChange={[Function]}
+    placeholder="Enter zipcode"
+    type="text"
+    value=""
+  />
+  <Link
+    className="button"
+    onClick={[Function]}
+    replace={false}
+    to={
+      Object {
+        "pathname": "/forecast/",
+        "zipcode": "",
+      }
+    }
+  >
+    Search
+  </Link>
+</div>
+`;
+
+exports[`<Zipcode /> should render correctly 1`] = `
+<div>
+  <form
+    className="form"
+  >
+    <div
+      className="form-container"
+    >
+      <label
+        id="search-label"
+      >
+        Get weather by zipcode
+      </label>
+      <Searchbar />
+    </div>
+  </form>
+</div>
+`;

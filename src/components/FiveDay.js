@@ -48,9 +48,9 @@ class FiveDay extends React.Component {
                                 <th>Temperature</th>
                                 <th>Conditions</th>
                             </tr>
-                            
+
                             {forecastData.list.map(item =>
-                                <tr key={item.dt} >
+                                <tr key={item.dt}>
                                     <td><img src={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`}/></td>
                                     <td>{formatDate(item.dt)}</td>
                                     <td>{formatTime(item.dt)}</td>

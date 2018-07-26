@@ -27,7 +27,6 @@ body {
 }
 
 .logo {
-    margin-left: 2%;
     font-size: 5em;
     text-align: center;
 }
@@ -168,6 +167,9 @@ table, th, td {
 }
 
 @media (min-width: 600px) {
+    .logo {
+        margin-left: 2%;
+    }
     .weather-container {
         flex-direction: row;
     }

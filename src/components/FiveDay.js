@@ -39,23 +39,23 @@ class FiveDay extends React.Component {
                 : <div className='weather-container'>
                     
                     <table>
-                        <caption style={{fontSize: '2em', marginBottom: '2vw'}}>{forecastData.city.name}</caption>
-                        <tbody style={{textAlign: 'center',  padding: '2px'}}>
-                            <tr>
-                                <th></th>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Temperature</th>
-                                <th>Conditions</th>
+                        <caption className='data-header' style={{marginBottom: '2vw'}}>{forecastData.city.name}</caption>
+                        <tbody style={{textAlign: 'center'}}>
+                            <tr className='five-day data-subheader'>
+                                <th className='five-day data-details'></th>
+                                <th className='five-day data-details'>Date</th>
+                                <th className='five-day data-details'>Time</th>
+                                <th className='five-day data-details'>Temperature</th>
+                                <th className='five-day data-details conditions'>Conditions</th>
                             </tr>
 
                             {forecastData.list.map(item =>
                                 <tr key={item.dt}>
-                                    <td><img src={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`}/></td>
-                                    <td>{formatDate(item.dt)}</td>
-                                    <td>{formatTime(item.dt)}</td>
-                                    <td>{Math.round(item.main.temp)}°F / {Math.round(toCelsius(item.main.temp))}°C</td>
-                                    <td>{item.weather[0].description}</td>
+                                    <td className='five-day data-details'><img src={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`} /></td>
+                                    <td className='five-day data-details'>{formatDate(item.dt)}</td>
+                                    <td className='five-day data-details'>{formatTime(item.dt)}</td>
+                                    <td className='five-day data-details'>{Math.round(item.main.temp)}°F / {Math.round(toCelsius(item.main.temp))}°C</td>
+                                    <td className='five-day data-details conditions'>{item.weather[0].description}</td>
                                 </tr>)
                             }
                         </tbody>

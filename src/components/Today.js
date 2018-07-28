@@ -1,4 +1,5 @@
 const React = require('react');
+const Temperature = require('./Temperature');
 const api = require('../utils/api');
 const formatter = require('../utils/formatter.js');
 
@@ -18,8 +19,10 @@ class Today extends React.Component {
             sunset: '',
             description: '',
             icon: '',
-            isLoading: true
+            isLoading: true,
+            useFahrenheit: true
         }
+        this.useFahrenheit = this.useFahrenheit.bind(this);
     }
 
     componentDidMount() {
@@ -49,9 +52,13 @@ class Today extends React.Component {
             })))
     }
 
+    useFahrenheit(result) {
+        this.setState({ useFahrenheit: result })
+    }
+
     render() {
         const { isLoading, name, f_temp, c_temp, description, f_temp_max, f_temp_min, c_temp_max, c_temp_min,
-                humidity, sunrise, sunset, icon} = this.state;
+                humidity, sunrise, sunset, icon, useFahrenheit } = this.state;
         return (
             <div>
             
@@ -61,10 +68,10 @@ class Today extends React.Component {
                 <div className='weather-container'>
                     <div>
                         <div className='data-header'>{name}</div>
-                        <div className='data-subheader'>{f_temp} / {c_temp}</div>
+                        <div className='data-subheader'>{useFahrenheit ? f_temp : c_temp}</div>
                         <div className='data-subheader'>{description}</div><br/>
-                        <div className='data-details'>High: {f_temp_max} / {c_temp_max}</div>
-                        <div className='data-details'>Low: {f_temp_min} / {c_temp_min}</div>
+                        <div className='data-details'>High: {useFahrenheit ? f_temp_max : c_temp_max}</div>
+                        <div className='data-details'>Low: {useFahrenheit ? f_temp_min : c_temp_min}</div>
                         <div className='data-details'>Humidity: {humidity}</div>
                         <div className='data-details'>Sunrise: {sunrise}</div>
                         <div className='data-details'>Sunset: {sunset}</div>
@@ -76,6 +83,8 @@ class Today extends React.Component {
                     </div>
                 </div>
                 }
+
+            <Temperature useFahrenheit={this.useFahrenheit} />
 
             </div>
         );

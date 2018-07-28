@@ -1,4 +1,5 @@
 const React = require('react');
+const Temperature = require('./Temperature');
 const api = require('../utils/api');
 const formatter = require('../utils/formatter.js');
 const formatDate = formatter.formatDate;
@@ -10,8 +11,10 @@ class FiveDay extends React.Component {
         super(props);
         this.state = {
             forecastData: null,
-            isLoading: true
+            isLoading: true,
+            useFahrenheit: true
         }
+        this.useFahrenheit = this.useFahrenheit.bind(this);
     }
 
     componentDidMount() {
@@ -20,6 +23,10 @@ class FiveDay extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         this.updateData(nextProps.data);
+    }
+
+    useFahrenheit(result) {
+        this.setState({ useFahrenheit: result })
     }
 
     updateData(zipcode) {
@@ -31,7 +38,7 @@ class FiveDay extends React.Component {
     }
 
     render() {
-        const { isLoading, forecastData } = this.state;
+        const { isLoading, forecastData, useFahrenheit } = this.state;
         return (
             <div>
                 {(isLoading || forecastData == null)
@@ -54,7 +61,9 @@ class FiveDay extends React.Component {
                                     <td className='five-day data-details'><img src={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`} /></td>
                                     <td className='five-day data-details'>{formatDate(item.dt)}</td>
                                     <td className='five-day data-details'>{formatTime(item.dt)}</td>
-                                    <td className='five-day data-details'>{Math.round(item.main.temp)}°F / {Math.round(toCelsius(item.main.temp))}°C</td>
+                                    <td className='five-day data-details'>{useFahrenheit 
+                                        ? `${Math.round(item.main.temp)}°F`
+                                        : `${Math.round(toCelsius(item.main.temp))}°C`}</td>
                                     <td className='five-day data-details conditions'>{item.weather[0].description}</td>
                                 </tr>)
                             }
@@ -62,7 +71,7 @@ class FiveDay extends React.Component {
                     </table>
                 </div>
                 }
-
+                <Temperature useFahrenheit={this.useFahrenheit} />
             </div>
         )
     }

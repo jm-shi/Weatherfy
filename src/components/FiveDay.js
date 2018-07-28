@@ -3,7 +3,9 @@ const Temperature = require('./Temperature');
 const api = require('../utils/api');
 const formatter = require('../utils/formatter.js');
 const formatDate = formatter.formatDate;
+const formatShortDate = formatter.formatShortDate;
 const formatTime = formatter.formatTime;
+const formatShortTime = formatter.formatShortTime;
 const toCelsius = formatter.toCelsius;
 
 class FiveDay extends React.Component {
@@ -59,8 +61,10 @@ class FiveDay extends React.Component {
                             {forecastData.list.map(item =>
                                 <tr key={item.dt}>
                                     <td className='five-day data-details'><img src={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`} /></td>
-                                    <td className='five-day data-details'>{formatDate(item.dt)}</td>
-                                    <td className='five-day data-details'>{formatTime(item.dt)}</td>
+                                    <td className='five-day data-details short-date'>{formatShortDate(item.dt)}</td>
+                                    <td className='five-day data-details long-date'>{formatDate(item.dt)}</td>
+                                    <td className='five-day data-details short-time'>{formatShortTime(item.dt)}</td>
+                                    <td className='five-day data-details long-time'>{formatTime(item.dt)}</td>
                                     <td className='five-day data-details'>{useFahrenheit 
                                         ? `${Math.round(item.main.temp)}°F`
                                         : `${Math.round(toCelsius(item.main.temp))}°C`}</td>

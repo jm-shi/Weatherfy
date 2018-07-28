@@ -77,7 +77,7 @@ body {
     padding: 10px 15px;
     margin: auto; 
     color: rgb(255,255,255);
-    background-color: rgb(67, 77, 90);
+    background-color: rgb(10,10,10);
     cursor: pointer;
 }
 
@@ -91,6 +91,7 @@ body {
     background: none;
     margin-left: 5%;
     margin-right: 5%;
+    border: 1px solid rgb(255,255,255);
 }
 
 .button:hover,
@@ -202,7 +203,20 @@ input[type=radio] + label {
     cursor: pointer;
 }
 
+.long-date,
+.long-time {
+    display: none;
+}
+
 @media (min-width: 600px) {
+    .short-date,
+    .short-time {
+        display: none;
+    }
+    .long-date,
+    .long-time {
+        display: table-cell;
+    }
     .conditions {
         display: table-cell;
     }

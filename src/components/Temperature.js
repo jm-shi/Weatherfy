@@ -1,4 +1,5 @@
 const React = require('react');
+const PropTypes = require('prop-types');
 
 class Temperature extends React.Component {
 
@@ -40,5 +41,9 @@ class Temperature extends React.Component {
         )
     }
 }
+
+Temperature.propTypes = {
+    useFahrenheit: PropTypes.func,
+  };
 
 module.exports = Temperature;

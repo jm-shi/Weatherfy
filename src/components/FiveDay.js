@@ -1,5 +1,6 @@
 const React = require('react');
 const Temperature = require('./Temperature');
+const PropTypes = require('prop-types');
 const api = require('../utils/api');
 const formatter = require('../utils/formatter.js');
 const formatDate = formatter.formatDate;
@@ -80,5 +81,9 @@ class FiveDay extends React.Component {
         )
     }
 }
+
+FiveDay.propTypes = {
+    data: PropTypes.string,
+};
 
 module.exports = FiveDay;

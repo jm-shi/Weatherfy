@@ -2,7 +2,7 @@ const React = require('react');
 const Navbar = require('./Navbar');
 const Today = require('./Today');
 const FiveDay = require('./FiveDay');
-const api = require('../utils/api');
+const PropTypes = require('prop-types');
 
 class Forecast extends React.Component {
     constructor(props) {
@@ -51,5 +51,9 @@ class Forecast extends React.Component {
         );
     }
 }
+
+Forecast.propTypes = {
+    zipcode: PropTypes.string,
+};
 
 module.exports = Forecast;

@@ -1,16 +1,16 @@
-const React = require('react');
-const Zipcode = require('./Zipcode');
-const Navbar = require('./Navbar');
+import React from 'react';
+import Zipcode from './Zipcode';
+import Navbar from './Navbar';
 
 class Home extends React.Component {
-    render() {
-        return (
-            <div>
-                <Navbar onHomePage='true' />
-                <Zipcode />
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Navbar onHomePage="true" />
+        <Zipcode />
+      </div>
+    );
+  }
 }
 
 module.exports = Home;

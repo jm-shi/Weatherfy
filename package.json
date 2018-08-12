@@ -21,6 +21,8 @@
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js"
   },
   "dependencies": {
+    "dotenv": "^6.0.0",
+    "dotenv-webpack": "^1.5.7",
     "eslint": "^5.2.0",
     "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.6.2",

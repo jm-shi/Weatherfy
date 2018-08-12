@@ -59,6 +59,10 @@ class Forecast extends React.Component {
   }
 }
 
+Forecast.defaultProps = {
+  zipcode: '92092'
+};
+
 Forecast.propTypes = {
   zipcode: PropTypes.string
 };

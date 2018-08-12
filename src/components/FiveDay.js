@@ -6,7 +6,8 @@ import {
   formatDate,
   formatShortDate,
   formatTime,
-  formatShortTime
+  formatShortTime,
+  toCelsius
 } from '../utils/formatter';
 import 'isomorphic-fetch';
 

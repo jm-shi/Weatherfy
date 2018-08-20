@@ -29,7 +29,7 @@ class Searchbar extends React.Component {
     const { zipcode } = this.state;
 
     return (
-      <div className="search-container">
+      <form className="search-container">
         <input
           id="search-bar"
           type="text"
@@ -47,8 +47,9 @@ class Searchbar extends React.Component {
           onClick={this.checkForm}
         >
           Search
+          <input className="no-display" type="submit" />
         </Link>
-      </div>
+      </form>
     );
   }
 }
